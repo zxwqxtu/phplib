@@ -1,3 +1,10 @@
 {
-    "name": "phplib/phplib"
+    "name": "phplib/phplib",
+    "description": "php library extensions",
+    "keywords": ["Mongodb", "phplib"],
+    "homepage": "https://github.com/zxwqxtu/phplib.git",
+    "type": "library",
+    "autoload": {
+        "psr-4": {"Mongodb\\": "Mongodb"}
+    }
 }
