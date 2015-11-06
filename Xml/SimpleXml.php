@@ -21,9 +21,9 @@ class SimpleXml
      *
      * @param string $encoding utf-8
      */
-    public function __construct($encoding="UTF-8")
+    public function __construct($head, $encoding="UTF-8")
     {
-        $xmlStr = "<?xml version=\"1.0\" encoding=\"{$encoding}\" ?>";
+        $xmlStr = "<?xml version=\"1.0\" encoding=\"{$encoding}\" ?><{$head}></{$head}>";
         $this->_xml = new \SimpleXMLElement($xmlStr);
     }
 
