@@ -85,8 +85,8 @@ class SimpleXml
      *
      * @return boolean 
      */
-    public function file($fileName)
+    public function toFile($fileName)
     {
-        return $xml->saveXML($fileName);
+        return $this->_xml->saveXML($fileName);
     }
 }
