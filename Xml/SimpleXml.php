@@ -19,6 +19,7 @@ class SimpleXml
     /**
      * 构造函数
      *
+     * @param string $head 
      * @param string $encoding utf-8
      */
     public function __construct($head, $encoding="UTF-8")
