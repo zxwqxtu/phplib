@@ -44,14 +44,20 @@ class SimpleXml
             $xmlObj = $this->_xml;
         }
         foreach ($arr as $k=>$v) {
-            if (is_numeric($k)) {
-                $k = $numericPrefix;
-            }
+            $key = is_numeric($k) ? $numericPrefix: $k;
+            
             if (is_array($v)) {
-                $newXml = $xmlObj->addChild($k);
+                $newXml = $xmlObj->addChild($key);
+                if (is_numeric($k)) {
+                    $newXml->addAttribute('value', $k);
+                }
                 $this->arrayToXml($v, $newXml);
             } else {
-                $xmlObj->addChild($k, htmlspecialchars($v));
+                if (is_numeric($k)) {
+                    $xmlObj->addChild($key, htmlspecialchars($v))->addAttribute('value', $k);
+                } else {
+                    $xmlObj->addChild($key, htmlspecialchars($v));
+                }
             }
         }
         $this->_xml = $xmlObj;
