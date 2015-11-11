@@ -5,6 +5,6 @@
     "homepage": "https://github.com/zxwqxtu/phplib.git",
     "type": "library",
     "autoload": {
-        "psr-4": {"Mongodb\\": "Mongodb", "Xml\\": "Xml"}
+        "psr-4": {"Mongodb\\": "Mongodb", "Xml\\": "Xml", "Mysql\\": "Mysql"}
     }
 }
