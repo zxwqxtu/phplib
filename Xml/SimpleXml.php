@@ -33,12 +33,12 @@ class SimpleXml
      * 支持多维数组
      *
      * @param array             $arr           数组
-     * @param \SimpleXMLElement $xmlObj        对象
      * @param string            $numericPrefix 对数组数字键的处理
+     * @param \SimpleXMLElement $xmlObj        对象
      *
      * @return \Xml\SimpleXml
      */
-    public function arrayToXml($arr, $xmlObj=null, $numericPrefix='item')
+    public function arrayToXml($arr, $numericPrefix='item', $xmlObj=null)
     {
         if (is_null($xmlObj)) {
             $xmlObj = $this->_xml;
