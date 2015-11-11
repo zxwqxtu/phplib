@@ -53,7 +53,7 @@ class PhpMysql
         $dsn = "mysql:dbname={$config['dbName']};host={$config['host']}";
         $md5 = md5($dsn);
         if (empty($this->_dsns[$md5])) {
-            $this->_dsns[$md5] = new PDO($dsn, $config['user'], $config['pass']);
+            $this->_dsns[$md5] = new \PDO($dsn, $config['user'], $config['pass']);
         }
 
         return $this->_dsns[$md5];
