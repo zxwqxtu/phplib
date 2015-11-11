@@ -51,7 +51,7 @@ class SimpleXml
                 if (is_numeric($k)) {
                     $newXml->addAttribute('value', $k);
                 }
-                $this->arrayToXml($v, $newXml);
+                $this->arrayToXml($v, $numericPrefix, $newXml);
             } else {
                 if (is_numeric($k)) {
                     $xmlObj->addChild($key, htmlspecialchars($v))->addAttribute('value', $k);
