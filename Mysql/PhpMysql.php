@@ -52,8 +52,14 @@ class PhpMysql
     {
         $dsn = "mysql:dbname={$config['dbName']};host={$config['host']}";
         $md5 = md5($dsn);
+
+        $attributes = array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION);
+        if (!empty($config['attributes'])) {
+            $attributes = array_merge($attributes, $config['attributes']);
+        }
+
         if (empty($this->_dsns[$md5])) {
-            $this->_dsns[$md5] = new \PDO($dsn, $config['user'], $config['pass']);
+            $this->_dsns[$md5] = new \PDO($dsn, $config['user'], $config['pass'], $attributes);
         }
 
         return $this->_dsns[$md5];
