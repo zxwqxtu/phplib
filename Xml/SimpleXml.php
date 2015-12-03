@@ -66,6 +66,32 @@ class SimpleXml
     }
 
     /**
+     * xml转换成数组
+     *
+     * @param \SimpleXMLElement $xmlObj        对象
+     * @param array             $arr           引用数组
+     * @param string            $numericPrefix 对数组数字键的处理
+     *
+     * @return Array $arr
+     */
+    public static function xmlToArray(\SimpleXMLElement $xml, &$arr, $numericPrefix='item')
+    {
+        foreach ($xml->children() as $k => $v) {
+            $key = $k;
+            if ($k == $numericPrefix) {
+                $key = strval($v->attributes()->value);    
+            }
+            if ($v->count()) {
+                $arr[$key] = self::xmlToArray($v, $arr[$key], $numericPrefix); 
+            } else {
+                $arr[$key] = strval($v);
+            }
+        }
+        return $arr;      
+    }
+
+
+    /**
      * 获取xml
      *
      * @return \SimpleXMLElement
