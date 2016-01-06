@@ -1,7 +1,7 @@
 {
-    "name": "phplib/phplib",
+    "name": "zxwqxtu/phplib",
     "description": "php library extensions",
-    "keywords": ["Mongodb", "phplib"],
+    "keywords": ["Mongodb", "phplib", "Mysql", "XML"],
     "homepage": "https://github.com/zxwqxtu/phplib.git",
     "type": "library",
     "autoload": {
